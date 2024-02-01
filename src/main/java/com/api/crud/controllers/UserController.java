@@ -1,7 +1,5 @@
 package com.api.crud.controllers;
 
-import java.util.ArrayList;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,13 +22,18 @@ public class UserController {
     private UserService userService;
 
     @GetMapping
-    public ArrayList<UserModel> getMedidores() {
+    public List<UserModel> getMedidores() {
         return this.userService.getMedidores();
     }
 
-    @PostMapping
-    public UserModel saveMedidores(@RequestBody UserModel medidor) {
+    @PostMapping(path = "/addMedidor")
+    public UserModel saveMedidor(@RequestBody UserModel medidor) {
         return this.userService.saveMedidor(medidor);
+    }
+
+    @PostMapping
+    public List<UserModel> saveMedidores(@RequestBody List<UserModel> medidores) {
+        return this.userService.saveMedidores(medidores);
     }
 
     @GetMapping(path = "/{id}")

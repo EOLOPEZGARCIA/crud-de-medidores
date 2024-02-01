@@ -3,8 +3,6 @@ package com.api.crud.services;
 import com.api.crud.models.UserModel;
 import com.api.crud.repositories.IUserRepository;
 
-import java.util.ArrayList;
-
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
@@ -17,13 +15,18 @@ public class UserService {
     @Autowired
     IUserRepository userRepository;
 
-    public ArrayList<UserModel> getMedidores() {
-        return (ArrayList<UserModel>) userRepository.findAll();
+    public List<UserModel> getMedidores() {
+        return (List<UserModel>) userRepository.findAll();
     }
 
     public UserModel saveMedidor(UserModel medidor) {
 
         return userRepository.save(medidor);
+    }
+
+    public List<UserModel> saveMedidores(List<UserModel> medidores) {
+
+        return userRepository.saveAll(medidores);
     }
 
     public Optional<UserModel> getById(Long id) {

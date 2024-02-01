@@ -24,10 +24,12 @@ public class UserService {
         return userRepository.save(medidor);
     }
 
-    public List<UserModel> saveMedidores(List<UserModel> medidores) {
-
-        return userRepository.saveAll(medidores);
-    }
+    /*
+     * public List<UserModel> saveMedidores(List<UserModel> medidores) {
+     * 
+     * return userRepository.saveAll(medidores);
+     * }
+     */
 
     public Optional<UserModel> getById(Long id) {
         return userRepository.findById(id);

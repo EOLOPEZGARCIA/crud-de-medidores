@@ -31,10 +31,13 @@ public class UserController {
         return this.userService.saveMedidor(medidor);
     }
 
-    @PostMapping
-    public List<UserModel> saveMedidores(@RequestBody List<UserModel> medidores) {
-        return this.userService.saveMedidores(medidores);
-    }
+    /*
+     * @PostMapping
+     * public List<UserModel> saveMedidores(@RequestBody List<UserModel> medidores)
+     * {
+     * return this.userService.saveMedidores(medidores);
+     * }
+     */
 
     @GetMapping(path = "/{id}")
     public Optional<UserModel> getMedidorById(@PathVariable("id") Long id) {
